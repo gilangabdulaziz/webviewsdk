@@ -91,39 +91,6 @@ public class BotWebView extends AppCompatActivity {
         fh.closeBot();
     }
 
-    public void setStatusBarColor(){
-        try{
-        String color = ConfigDataModel.getInstance().getConfig("statusBarColor");
-//        boolean isHexCode = color.matches("-?[0-9a-fA-F]+");
-
-//            Log.d(TAG, "setStatusBarColor: "+isHexCode);
-
-        int customColor = -1;
-        try {
-
-            customColor =Integer.parseInt(color);
-//            customColor = isHexCode ? Integer.parseInt(color, 16)  : Integer.parseInt(color);
-
-        }
-        catch (Exception e){
-            Log.d(TAG, e.getMessage());
-        }
-
-        if(customColor != -1) {
-
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                Window window = BotWebView.this.getWindow();
-                window.setStatusBarColor(customColor);
-            }
-        }
-        }
-        catch (Exception e){
-
-            Log.d(TAG, "Incorrect color code for status bar.");
-        }
-    }
-
     public void setActionBarColor(){
         try{
             String color = ConfigDataModel.getInstance().getConfig("actionBarColor");
@@ -189,7 +156,6 @@ public class BotWebView extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStatusBarColor();
         setActionBarColor();
         setOverviewColor();
 
