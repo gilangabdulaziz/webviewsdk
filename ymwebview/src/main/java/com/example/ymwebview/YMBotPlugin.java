@@ -48,8 +48,6 @@ public class YMBotPlugin {
             } else {
                 throw new RuntimeException("Mandatory arguments not present");
             }
-        } else {
-            throw new RuntimeException("Cannot initialize " + this.getClass().getName() + " multiple times");
         }
     }
     public void startChatBot(Context context){
